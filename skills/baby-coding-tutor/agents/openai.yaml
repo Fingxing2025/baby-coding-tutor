@@ -1,0 +1,4 @@
+interface:
+  display_name: "宝宝 Coding Mode"
+  short_description: "面向会写基础代码但不会做项目的同学，边真实开发边理解，每次只推进一小步。"
+  default_prompt: "使用 $baby-coding-tutor 带我边学边做一个真正能运行的项目。我会基础编程，但没有项目开发经验。"

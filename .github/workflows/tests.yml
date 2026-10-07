@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  distribution:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.14"]
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Test distribution helpers and HTTP fixture
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Verify published skill archive and license
+        run: |
+          python scripts/manage.py package
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          root = Path.cwd()
+          assert (root / "LICENSE").read_bytes() == (root / "skills/baby-coding-tutor/LICENSE").read_bytes()
+          archive = root / "dist/baby-coding-tutor-v0.1.0.zip"
+          expected = (root / "dist/SHA256SUMS.txt").read_text().split()[0]
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == expected
+          PY

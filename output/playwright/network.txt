@@ -1,0 +1,2 @@
+GET /api/note -> 404 File not found
+GET /api/notes -> 200 OK

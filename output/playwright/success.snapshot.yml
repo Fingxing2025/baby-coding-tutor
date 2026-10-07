@@ -1,0 +1,7 @@
+- generic [ref=f1e1]:
+  - heading "阅读清单" [level=1] [ref=f1e2]
+  - button "加载笔记" [active] [ref=f1e3]
+  - status [ref=f1e4]: 加载完成
+  - list [ref=f1e5]:
+    - listitem [ref=f1e6]: 算法导论
+    - listitem [ref=f1e7]: 网页开发笔记

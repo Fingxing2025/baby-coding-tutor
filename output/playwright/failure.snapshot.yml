@@ -1,0 +1,5 @@
+- generic [ref=e1]:
+  - heading "阅读清单" [level=1] [ref=e2]
+  - button "加载笔记" [active] [ref=e3]
+  - status [ref=e4]: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+  - list
