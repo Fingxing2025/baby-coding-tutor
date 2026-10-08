@@ -13,11 +13,14 @@
 ```text
 baby-coding-tutor/
 ├── SKILL.md
+├── LICENSE
 ├── agents/openai.yaml
-└── references/examples.md
+└── references/
+    ├── examples.md
+    └── teach-skill.md
 ```
 
-核心入口只用 `name`、`description` 和 `metadata.version`，不引入实验性的工具白名单或平台专用运行器。界面文件包含显示名、短说明、默认提示；保持默认的自动匹配，用清晰触发描述限制在共同学习的开发任务中。示例按需加载，核心规则始终在入口内。
+核心入口使用 `name`、`description`、`license` 和 `metadata.version`，不引入实验性的工具白名单或平台专用运行器。界面文件包含显示名、短说明、默认提示；保持默认的自动匹配，用清晰触发描述限制在共同学习的开发任务中。显式用本模式学习工程概念时尊重该任务范围。示例按需加载，核心规则始终在入口内。
 
 Codex 文档旧地址 `https://developers.openai.com/codex/skills` 本次打开重定向到上表的 Build skills；当前页面采用 `.agents/skills`。因此安装脚本采用当前路径，不将过去常见的 `.codex/skills` 写成首选。本机附带的 skill-creator 工具用于创建和格式校验，但安装位置按新文档。
 

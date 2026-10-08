@@ -9,7 +9,7 @@ from zipfile import BadZipFile, ZipFile, ZIP_DEFLATED
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "baby-coding-tutor"
 NAME = "baby-coding-tutor"
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 SCENARIOS = {"1": "01-todo", "2": "02-campus-board", "3": "03-reading-debug"}
 
 

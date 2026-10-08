@@ -28,9 +28,10 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import hashlib
+          from scripts import manage
           root = Path.cwd()
           assert (root / "LICENSE").read_bytes() == (root / "skills/baby-coding-tutor/LICENSE").read_bytes()
-          archive = root / "dist/baby-coding-tutor-v0.1.0.zip"
-          expected = (root / "dist/SHA256SUMS.txt").read_text().split()[0]
-          assert hashlib.sha256(archive.read_bytes()).hexdigest() == expected
+          archive = root / "dist" / f"{manage.NAME}-v{manage.VERSION}.zip"
+          expected = dict(line.split(maxsplit=1)[::-1] for line in (root / "dist/SHA256SUMS.txt").read_text().splitlines())
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == expected[archive.name]
           PY
